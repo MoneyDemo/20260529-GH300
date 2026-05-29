@@ -1,1 +1,9 @@
+# 測試框架
 pytest==8.3.5
+
+# 桌面版 GUI（PyQt6）
+PyQt6>=6.5.0
+PyQt6-sip>=13.5.0
+
+# 打包成跨平台可執行檔
+PyInstaller>=5.0

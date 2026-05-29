@@ -1,0 +1,180 @@
+/* ============================================================
+   BMI 計算機 - 現代化視覺樣式表 (QSS)
+   設計風格：柔和漸層、卡片式版面、圓角與細膩陰影
+   ============================================================ */
+
+QWidget#rootWidget {
+    background-color: #eef2ff;
+}
+
+/* 主卡片容器 */
+QFrame#card {
+    background-color: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #e2e8f0;
+}
+
+/* 標題列漸層橫幅 */
+QFrame#headerBanner {
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    background-color: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 1,
+        stop: 0 #6366f1, stop: 0.5 #8b5cf6, stop: 1 #ec4899
+    );
+}
+
+QLabel#titleLabel {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+QLabel#subtitleLabel {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* 區段標題與欄位標籤 */
+QLabel#fieldLabel {
+    color: #334155;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* 數值輸入框 */
+QDoubleSpinBox {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 10px 14px;
+    font-size: 16px;
+    color: #1e293b;
+    selection-background-color: #c7d2fe;
+}
+
+QDoubleSpinBox:focus {
+    border: 2px solid #6366f1;
+    background-color: #ffffff;
+}
+
+QDoubleSpinBox::up-button,
+QDoubleSpinBox::down-button {
+    width: 22px;
+    border: none;
+    background: transparent;
+}
+
+/* 單位切換下拉選單 */
+QComboBox {
+    background-color: #eef2ff;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #4338ca;
+    min-width: 110px;
+}
+
+QComboBox:focus {
+    border: 2px solid #6366f1;
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 26px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    selection-background-color: #e0e7ff;
+    selection-color: #3730a3;
+    padding: 4px;
+    outline: none;
+}
+
+/* 主要按鈕 - 計算 */
+QPushButton#calculateButton {
+    background-color: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 0,
+        stop: 0 #6366f1, stop: 1 #8b5cf6
+    );
+    color: #ffffff;
+    border: none;
+    border-radius: 16px;
+    padding: 14px 24px;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+QPushButton#calculateButton:hover {
+    background-color: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 0,
+        stop: 0 #4f46e5, stop: 1 #7c3aed
+    );
+}
+
+QPushButton#calculateButton:pressed {
+    background-color: #4338ca;
+}
+
+/* 次要按鈕 - 重置 */
+QPushButton#resetButton {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+QPushButton#resetButton:hover {
+    background-color: #e2e8f0;
+    color: #334155;
+}
+
+QPushButton#resetButton:pressed {
+    background-color: #cbd5e1;
+}
+
+/* 結果區塊 */
+QFrame#resultCard {
+    border-radius: 18px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+QLabel#bmiValueLabel {
+    font-size: 48px;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+QLabel#bmiUnitLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+QLabel#categoryLabel {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+QLabel#adviceLabel {
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+}
+
+QLabel#footerLabel {
+    color: #94a3b8;
+    font-size: 12px;
+}
