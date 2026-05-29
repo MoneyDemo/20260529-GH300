@@ -332,7 +332,21 @@ class BMIWindow(QMainWindow):
 def main():
     app = QApplication(sys.argv)
     app.setApplicationName("BMI 健康計算機")
-    app.setFont(QFont("Noto Sans CJK TC", 10))
+
+    # 設定跨平台的繁體中文字型優先序，確保各作業系統都能正確顯示
+    font = QFont()
+    font.setFamilies(
+        [
+            "Noto Sans CJK TC",
+            "Microsoft JhengHei",
+            "PingFang TC",
+            "Heiti TC",
+            "sans-serif",
+        ]
+    )
+    font.setPointSize(10)
+    app.setFont(font)
+
     app.setStyleSheet(load_stylesheet())
 
     window = BMIWindow()
