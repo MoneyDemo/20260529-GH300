@@ -1,8 +1,18 @@
 INCH_TO_METER = 0.0254
+CM_TO_METER = 0.01
+POUND_TO_KG = 0.45359237
 
 
 def inches_to_meters(height_in):
     return height_in * INCH_TO_METER
+
+
+def cm_to_meters(height_cm):
+    return height_cm * CM_TO_METER
+
+
+def pounds_to_kg(weight_lb):
+    return weight_lb * POUND_TO_KG
 
 
 def calculate_bmi_value(weight_kg, height_m):
