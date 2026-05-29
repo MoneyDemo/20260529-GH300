@@ -1,0 +1,50 @@
+name: Build Windows Executable
+
+# 僅限手動觸發
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows-exe:
+    name: Build BMI Calculator (.exe)
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: bmi
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build executable with PyInstaller
+        working-directory: bmi
+        run: pyinstaller bmi.spec
+
+      - name: Verify executable was produced
+        working-directory: bmi
+        shell: pwsh
+        run: |
+          if (-not (Test-Path "dist/BMICalculator.exe")) {
+            Write-Error "Build failed: dist/BMICalculator.exe was not produced."
+            exit 1
+          }
+          Write-Host "Build succeeded: dist/BMICalculator.exe"
+          Get-Item "dist/BMICalculator.exe" | Format-List Name, Length
+
+      - name: Upload executable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: BMICalculator-windows
+          path: bmi/dist/BMICalculator.exe
+          if-no-files-found: error

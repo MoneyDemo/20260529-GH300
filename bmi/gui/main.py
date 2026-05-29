@@ -75,9 +75,17 @@ CATEGORY_INFO = {
 }
 
 
+def _resource_dir():
+    """回傳資源檔所在目錄；於 PyInstaller 打包後改用 _MEIPASS 暫存目錄。"""
+    base = getattr(sys, "_MEIPASS", None)
+    if base:
+        return os.path.join(base, "styles")
+    return os.path.join(_THIS_DIR, "styles")
+
+
 def load_stylesheet():
     """讀取 QSS 樣式表內容，若檔案不存在則回傳空字串。"""
-    qss_path = os.path.join(_THIS_DIR, "styles", "style.qss")
+    qss_path = os.path.join(_resource_dir(), "style.qss")
     try:
         with open(qss_path, "r", encoding="utf-8") as qss_file:
             return qss_file.read()
